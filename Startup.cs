@@ -21,6 +21,8 @@ namespace MovieApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //Servir archivo por defecto (index) de la carpeta wwwroot
+            app.UseDefaultFiles();
             //Servir archivos estáticos (wwwroot)
             app.UseStaticFiles();
         }
