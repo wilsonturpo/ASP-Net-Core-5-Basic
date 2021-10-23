@@ -16,15 +16,26 @@ namespace MovieApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Permite el uso de controladores y vistas
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //Servir archivo por defecto (index) de la carpeta wwwroot
-            app.UseDefaultFiles();
             //Servir archivos estáticos (wwwroot)
             app.UseStaticFiles();
+
+            app.UseRouting();
+
+            //Determinar qué ejecutar en base a la url
+            app.UseEndpoints(x =>{
+                x.MapControllerRoute(
+                    name: "Default",
+                    pattern: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "App", Action = "Index"}
+                );
+            });
         }
     }
 }
