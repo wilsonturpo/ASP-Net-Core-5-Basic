@@ -8,8 +8,7 @@ namespace MovieApp.Controllers{
             return View();
         }
 
-        //Welcome
-        public IActionResult Welcome(){
+        public IActionResult Edit(){
             return View();
         }
     }
