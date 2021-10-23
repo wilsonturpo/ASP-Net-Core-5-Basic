@@ -4,7 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace MovieApp.Controllers{
     public class AppController : Controller{
         public IActionResult Index(){
-            throw new InvalidOperationException();
+            //throw new InvalidOperationException();
+            return View();
+        }
+
+        //Welcome
+        public IActionResult Welcome(){
             return View();
         }
     }
