@@ -11,5 +11,10 @@ namespace MovieApp.Controllers{
         public IActionResult Edit(){
             return View();
         }
+
+        [HttpGet("About")]
+        public IActionResult About(){
+            return View();
+        }
     }
 }
