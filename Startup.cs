@@ -18,6 +18,7 @@ namespace MovieApp
         {
             //Permite el uso de controladores y vistas
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,6 +27,8 @@ namespace MovieApp
             if(env.IsDevelopment()){
                 //Mostrar errores en pantalla web
                 app.UseDeveloperExceptionPage();
+            }else{
+                app.UseExceptionHandler("/Error");
             }
 
             //Servir archivos estáticos (wwwroot)
@@ -35,6 +38,7 @@ namespace MovieApp
 
             //Determinar qué ejecutar en base a la url
             app.UseEndpoints(x =>{
+                x.MapRazorPages();
                 x.MapControllerRoute(
                     name: "Default",
                     pattern: "{controller}/{action}/{id?}",

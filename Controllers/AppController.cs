@@ -14,6 +14,7 @@ namespace MovieApp.Controllers{
 
         [HttpGet("About")]
         public IActionResult About(){
+            throw new InvalidOperationException();
             return View();
         }
     }
