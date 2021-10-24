@@ -1,0 +1,5 @@
+list of middlewares 
+list of taghelpers
+data anottations
+archivo de recursos(cambiar lenguaje
+de los mensajes de errores)
