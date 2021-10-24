@@ -15,7 +15,7 @@
             </th>
             <th>
                 <a asp-controller="App" asp-action="AddOrEdit" class="btn btn-primary">Agregar Película</a>
-            </th>            
+            </th>       
         </tr>
     </thead>
 
@@ -28,6 +28,10 @@
                 </td>
                 <td>
                     @item.Genre
+                </td>
+                <td>
+                    <a asp-action="AddOrEdit" asp-route-id="@item.Id">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Estás seguro de eliminar la película?')">Eliminar</a>
                 </td>
             </tr>
         }
