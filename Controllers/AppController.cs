@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using MovieApp.ViewModel;
 
 namespace MovieApp.Controllers{
     public class AppController : Controller{
@@ -13,7 +14,7 @@ namespace MovieApp.Controllers{
         }
 
         [HttpPost]
-        public IActionResult Edit(object model){
+        public IActionResult Edit(MovieViewModel model){
             return View();
         }
 

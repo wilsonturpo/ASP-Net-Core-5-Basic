@@ -1,3 +1,4 @@
+@model MovieViewModel
 @{
     ViewBag.Title = "Bienvenido";
 }
@@ -6,13 +7,13 @@
     <h4>Editar Película</h4>
     <div>
         <form method="post">
-            <label>Nombre:</label>
+            <label asp-for="Name">Nombre:</label>
             <br>
-            <input type="text" name="name">
+            <input type="text" asp-for="Name">
             <br>
-            <label>Género:</label>
+            <label asp-for="Genre">Género:</label>
             <br>
-            <input type="text" name="genre">
+            <input type="text" asp-for="Genre">
             <br>
             <input type="submit">
         </form>
