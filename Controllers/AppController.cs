@@ -15,6 +15,9 @@ namespace MovieApp.Controllers{
 
         [HttpPost]
         public IActionResult Edit(MovieViewModel model){
+            if(ModelState.IsValid){
+                //Guardar datos
+            }
             return View();
         }
 

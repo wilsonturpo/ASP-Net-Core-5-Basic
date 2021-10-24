@@ -10,10 +10,12 @@
             <label asp-for="Name">Nombre:</label>
             <br>
             <input type="text" asp-for="Name">
+            <span asp-validation-for="Name"></span>
             <br>
             <label asp-for="Genre">Género:</label>
             <br>
             <input type="text" asp-for="Genre">
+            <span asp-validation-for="Genre"></span>
             <br>
             <input type="submit">
         </form>
