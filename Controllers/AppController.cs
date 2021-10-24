@@ -1,22 +1,26 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using MovieApp.ViewModel;
 
 namespace MovieApp.Controllers{
     public class AppController : Controller{
+
+        private static List<MovieViewModel> _movies = new List<MovieViewModel>();
         public IActionResult Index(){
             //throw new InvalidOperationException();
-            return View();
+            return View(_movies);
         }
 
-        public IActionResult Edit(){
+        public IActionResult AddOrEdit(){
             return View();
         }
 
         [HttpPost]
-        public IActionResult Edit(MovieViewModel model){
+        public IActionResult AddOrEdit(MovieViewModel model){
             if(ModelState.IsValid){
-                //Guardar datos
+                _movies.Add(model);
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
