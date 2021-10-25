@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -17,7 +18,11 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddMvc();
-            services.AddControllers();
+            services.AddControllers(action =>{
+                action.ReturnHttpNotAcceptable = true;
+                //action.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+
+            }).AddXmlDataContractSerializerFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

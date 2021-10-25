@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers{
@@ -7,19 +8,21 @@ namespace api.Controllers{
     [Route("api/movies")]
     public class MoviesController : ControllerBase{
         
-        public JsonResult GetMovies(){
-            return new JsonResult( 
-                new List<object>(){
-                new {
-                    id = 1, 
-                    Name="Walk"
-                    },
-
-                new {
-                    id = 2,
-                    Name = "Dead"
-                }
-            });
+        public IActionResult GetMovies(){
+            return Ok(MoviesDataStore.Current.Movies);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetMovie(int id){
+            var movie = MoviesDataStore.Current
+            .Movies.FirstOrDefault(x => x.Id == id);
+
+            if(movie==null){
+                return NotFound();
+            }
+            return Ok(movie);
+        }
+
+        
     }
 }
